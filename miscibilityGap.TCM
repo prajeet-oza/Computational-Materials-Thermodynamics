@@ -1,0 +1,40 @@
+@@ Log file generated 2021- 5-25
+ @@ Miscibility gap in liquid phase
+
+go data
+sw user CoCu
+def-sys Co Cu
+rej-ph /all
+res-ph liq fcc hcp
+get
+go -3
+s-c x(co)=0.5 t=500 p=1e5 n=1
+l-c
+ch-st ph fcc,hcp=sus
+l-st
+CPS
+c-e
+l-e
+SCREEN
+VWCS
+save CoCuMiscibilityGap
+s-a-v 1 x(Co) 0 1,,
+s-a-v 2 T 300 1900,,
+map
+post
+s-d-a x mol-frac Co
+s-d-a y T-K
+plot
+make CoCuMiscibilityGap
+app y CoCuPhaseDiagram
+0
+1
+plot
+s-s-s Y N 300 1900
+s-s-s X N 0 1
+plot
+s-tit Co-Cu Phase Diagram with Metastable Miscibility Gap
+plot
+dump pdf CoCuPDwithMGap
+
+

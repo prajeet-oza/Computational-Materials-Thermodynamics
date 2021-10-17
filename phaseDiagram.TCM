@@ -1,0 +1,27 @@
+@@ Log file generated 2021- 5-25
+ @@ Co Cu phase diagram
+
+go data
+sw user CoCu
+def-sys Co Cu
+rej-ph /all
+res-ph liq fcc hcp
+get
+go -3
+s-c x(co)=0.5 t=500 p=1e5 n=1
+l-c
+c-e
+l-e
+SCREEN
+VWCS
+save CoCuPhaseDiagram
+s-a-v 1 x(Co) 0 1,,
+s-a-v 2 T 300 1900,,
+map
+post
+s-d-a x mol-frac Co
+s-d-a y T-K
+plot
+make CoCuPhaseDiagram
+
+

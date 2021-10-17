@@ -1,0 +1,28 @@
+@@ Log file generated 2021- 5-25
+ @@ enthalpy of mixing, Al-Cu FCC_A1 at 453K
+
+go data
+sw ALDEMO
+def-sys Al Cu
+get
+go -3
+ch-st ph *=sus
+ch-st ph fcc=ent 0
+s-r-st Al fcc * 1e5
+s-r-st Cu fcc * 1e5
+adv_opt global N,,
+s-c x(Cu)=0.9 t=453 p=1e5 n=1
+l-c
+c-e
+l-e
+SCREEN
+VWCS
+show HMR(fcc)
+s-a-v 1 x(Cu) 0 1 0.05,
+step,,
+post
+s-d-a x mol-frac Cu
+s-d-a y HMR(fcc_a1)
+s-tit Al-Cu Enthalpy of Mixing, FCC_A1 at 453 K
+plot
+dump pdf AlCuHmixFCC453

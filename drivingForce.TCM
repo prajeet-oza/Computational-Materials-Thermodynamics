@@ -1,0 +1,21 @@
+@@ Log file generated 2021- 5-25
+ @@ Driving force, Al-Cu AL2CU_C16 at W(CU)=0.045 and 453 K
+
+go data
+sw ALDEMO
+def-sys Al Cu
+get
+go -3
+ch-st ph *=dor
+ch-st ph liq=ent 0
+s-c w(Cu)=0.045 t=453 p=1e5 n=1
+l-c
+c-e
+l-e
+SCREEN
+VWCS
+l-st
+CPS
+
+@@ Driving force, AL2CU_C16: 1.425841E+00
+

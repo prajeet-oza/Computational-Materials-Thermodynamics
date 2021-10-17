@@ -1,0 +1,35 @@
+@@ Log file generated 2021- 3-12
+ @@ lattice stability Fe
+
+go data
+sw pure5
+def-sys Fe
+rej-ph /all
+res-ph bcc_a2, fcc_a1, hcp_a3, liq
+get data
+go poly_3
+s-c n=1 p=1e5 t=800
+ent-sym FUNCTION GBCC = (GM(BCC_A2) - GM(BCC_A2)) / 1000;
+ent-sym FUNCTION GFCC = (GM(FCC_A1) - GM(BCC_A2)) / 1000;
+ent-sym FUNCTION GHCP = (GM(HCP_A3) - GM(BCC_A2)) / 1000;
+ent-sym FUNCTION GLIQ = (GM(LIQ) - GM(BCC_A2)) / 1000;
+c-e
+s-a-v 1 T 300 2500,,
+s-w-o,,
+post
+ent-sym TABLE DELG = GBCC, GFCC, GHCP, GLIQ;
+s-d-a X T-K
+s-d-a Y DELG *
+plot
+s-s-s Y N -10 20
+s-s-s X N 300 2500
+s-l-c-o F
+s-tit LATTICE STABILITY OF FE
+plot
+m-e-d MM17B024_Assignment_1.exp
+dump png MM17B024_Assignment_1.png
+s-s-s Y N -2 5
+s-s-s X N 1000 2000
+plot
+dump png MM17B024_Assignment_1_ZOOMED.png
+exit

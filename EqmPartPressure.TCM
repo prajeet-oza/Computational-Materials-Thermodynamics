@@ -1,0 +1,36 @@
+@@ Log file generated 2021- 5-25
+ @@ O2 SO3
+
+go data
+sw user SO
+def-sys S O
+get
+go -3
+s-i-a n(O2)=1 n(O3S1)=1
+s-c p=2e5 t=500
+l-c
+c-e
+l-e
+SCREEN
+VWCS
+s-a-v 1 T 400 1500,,
+ent-sym fun pSO3=y(gas,O3S1)*P/1e5;
+ent-sym fun pSO2=y(gas,O2S1)*P/1e5;
+ent-sym fun pO2=y(gas,O2)*P/1e5;
+sh pO2
+ent-sym table pp=pO2,pSO2,pSO3;
+sh pp
+l-a-v
+step,,
+post
+s-d-a x t-k
+s-d-a y pp *
+plot
+s-l-c-o F
+plot
+s-s-s x N 400 1500
+s-s-s y N 0 1.3
+s-tit Equilibrium Partial Pressure vs Temperature, (init. equimolar SO3, O2)
+plot
+dump pdf EqmPartPressure
+
